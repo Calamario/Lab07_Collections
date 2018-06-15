@@ -148,11 +148,15 @@ namespace Deck_Collection
             myCards.Add(card19);
             myCards.Add(card20);
 
+            // Removes 10 of Spade
+            //myCards.RemoveCard(card10);
+
             //displays my cards
             DisplayCards(myCards);
             Console.WriteLine();
             Console.WriteLine("Hit Enter to Shuffle");
             Console.ReadLine();
+
 
             //Shuffling of Cards
              myCards.Shuffle();
