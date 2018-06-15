@@ -150,5 +150,91 @@ namespace Collection_Test
 
             Assert.NotEqual(myCards, copyCards);
         }
+
+        [Fact]
+        public void CanIRemoveCard()
+        {
+            Card card = new Card
+            {
+                Suit = Suit.Heart,
+                Value = Value.Ace
+            };
+
+            Card card2 = new Card
+            {
+                Suit = Suit.Spade,
+                Value = Value.King
+            };
+
+            Card card3 = new Card
+            {
+                Suit = Suit.Club,
+                Value = Value.Queen
+            };
+
+            Deck<Card> myCards = new Deck<Card> { card, card2, card3 };
+
+            Assert.True(myCards.RemoveCard(card));
+        }
+
+        [Fact]
+        public void CanIRemoveLastCard()
+        {
+            Card card = new Card
+            {
+                Suit = Suit.Heart,
+                Value = Value.Ace
+            };
+
+            Card card2 = new Card
+            {
+                Suit = Suit.Spade,
+                Value = Value.King
+            };
+
+            Card card3 = new Card
+            {
+                Suit = Suit.Club,
+                Value = Value.Queen
+            };
+
+            Deck<Card> myCards = new Deck<Card> { card, card2, card3 };
+
+            Assert.True(myCards.RemoveCard(card3));
+
+        }
+
+        [Fact]
+        public void ReturnFalseIRemoveCardThatDoesNotExist()
+        {
+            Card card = new Card
+            {
+                Suit = Suit.Heart,
+                Value = Value.Ace
+            };
+
+            Card card2 = new Card
+            {
+                Suit = Suit.Spade,
+                Value = Value.King
+            };
+
+            Card card3 = new Card
+            {
+                Suit = Suit.Club,
+                Value = Value.Queen
+            };
+
+            Card card4 = new Card
+            {
+                Suit = Suit.Diamond,
+                Value = Value.Five
+            };
+
+            Deck<Card> myCards = new Deck <Card> { card, card2, card3 };
+
+            Assert.False(myCards.RemoveCard(card4));
+
+        }
     }
 }
